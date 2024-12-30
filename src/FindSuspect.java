@@ -3,6 +3,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class FindSuspect extends JFrame implements ActionListener{
+	private static final long serialVersionUID = 1L;
 	private JPanel panel = new JPanel();
 	private JButton findbutton = new JButton("Find");
 	private JTextField text = new JTextField("Please enter suspect's name");

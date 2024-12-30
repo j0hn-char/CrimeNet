@@ -22,7 +22,7 @@ public class SusPage extends JFrame implements ActionListener{
 	private JTextArea sPartners = new JTextArea(5, 20);
 	private DefaultListModel<String> model = new DefaultListModel<String>();
 	private JButton backbutton = new JButton("Back to Search Screen");
-	private ArrayList<Suspect> temp = new ArrayList<Suspect>();;
+	private ArrayList<Suspect> temp = new ArrayList<Suspect>(); // temp array list για την ταξινόμιση 
 	private Suspect sus;
 	private Registry reg;
 	private boolean flag; // flag για αν υπάρχουν SMS
@@ -60,7 +60,7 @@ public class SusPage extends JFrame implements ActionListener{
 		geninfo.setBorder(BorderFactory.createLineBorder(Color.black));
 		geninfo.add(name);
 		geninfo.add(codename);
-		for(String num : sus.getNums())
+		for(String num : sus.getNums()) //πέρασμα αριθμών του υπόπτου στο model
 		{
 			model.addElement(num);
 		}
@@ -119,7 +119,7 @@ public class SusPage extends JFrame implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) { //υλοποίηση της actionPerformed για όλα τα κουμπιά του Suspect Page
 		if(e.getSource() == findbutton)
 		{
 			flag = false;
@@ -140,7 +140,7 @@ public class SusPage extends JFrame implements ActionListener{
 		}else if(e.getSource() == backbutton)
 		{
 			new FindSuspect(reg);
-			this.dispose();
+			this.dispose(); //κλείσιμο του παραθύρου suspect page κατά την επιστροφή στην αναζήτηση υπόπτου
 		}
 		
 	}
