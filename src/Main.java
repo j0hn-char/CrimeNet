@@ -82,6 +82,8 @@ public class Main {
 		ArrayList<Suspect> commonSuspects = s1.getCommonPartners(s3);
 		for(Suspect suspect: commonSuspects)
 			System.out.println(suspect.getName() + ", " + suspect.getCodeName());
+		
+		new FindSuspect(registry);
 	}
 
 }

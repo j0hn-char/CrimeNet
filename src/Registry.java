@@ -82,7 +82,7 @@ public class Registry {
 		{
 			if(com instanceof SMS)
 			{
-				if((num1 == com.getNum1() && num2 == com.getNum2()) || (num1 == com.getNum2() && num2 == com.getNum1()))
+				if((num1.equals(com.getNum1()) && num2.equals(com.getNum2())) || (num1.equals(com.getNum2()) && num2.equals(com.getNum1())))
 				{
 					if(((SMS) com).getMessage().contains("Bomb") || ((SMS) com).getMessage().contains("Attack") || ((SMS) com).getMessage().contains("Explosives") || ((SMS) com).getMessage().contains("Gun"))
 					{
@@ -92,5 +92,10 @@ public class Registry {
 			}
 		}
 		return messages;
+	}
+	
+	public ArrayList<Suspect> getSuspects()
+	{
+		return this.suspects;
 	}
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Suspect {
+public class Suspect implements Comparable<Suspect>{
 
 	private String name;
 	private String codeName;
@@ -83,4 +83,30 @@ public class Suspect {
 			System.out.println(sus.name + ", " + sus.codeName);
 		}
 	}
+	
+	public ArrayList<Suspect> suggestedSuspects()
+	{
+		ArrayList<Suspect> suggested = new ArrayList<>(); //λιστα με τους προτεινόμενους υπόπτους
+		
+		for(Suspect sus1 : this.possible)
+		{
+			for(Suspect sus2 : sus1.possible)
+			{
+				if(!suggested.contains(sus2) && !this.possible.contains(sus2) && this != sus2)
+				{
+					suggested.add(sus2);
+				}
+			}
+		}
+		
+		return suggested;
+	}
+
+
+	@Override
+	public int compareTo(Suspect other) {
+		return this.name.compareTo(other.getName());
+	}
+	
+	
 }
